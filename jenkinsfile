@@ -1,0 +1,15 @@
+pipeline
+{
+agent any
+stages
+{
+stage('scm checkout')
+  {steps { git branch: 'main', url: 'https://github.com/Sonalisoma20/devops-july-jenkins.git' }}
+
+stage('validate the job')
+{steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_devops', maven: 'Maven_devops', mavenSettingsConfig: '', traceability: true) {
+    sh 'mvn validate'
+} }}
+
+}
+}
