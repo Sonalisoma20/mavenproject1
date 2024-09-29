@@ -18,7 +18,7 @@ stage('execute unit test framework')
 
 stage('build the code')
 {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_devops', maven: 'Maven_devops', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvn package'
+    sh 'mvn clean -B -DskipTests package'
 }}}
 
 }
