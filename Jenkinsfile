@@ -11,5 +11,10 @@ stage('compile the job')
     sh 'mvn compile'
 }}}
 
+stage('execute unit test framework')
+{steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_devops', maven: 'Maven_devops', mavenSettingsConfig: '', traceability: true) {
+    sh 'mvn test'
+}}}
+
 }
 }
